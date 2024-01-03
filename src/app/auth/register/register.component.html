@@ -1,0 +1,67 @@
+<!-- <p>
+  register works!
+</p> -->
+
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content >
+  
+
+    <ion-card class="mx-auto p-3 " style=" width: fit-content; margin-top: 50px;" >
+      <ion-card-header>
+        <ion-card-title class="mx-auto my-2" >Registre</ion-card-title>
+        <!-- <ion-card-subtitle class="ion-margin-top">Registre</ion-card-subtitle> -->
+      </ion-card-header>
+      <ion-card-content>
+        <form #register="ngForm">
+          <ion-item class="mt-2">
+            <ion-input label="Name" aria-label="Success input"  color="success" label-placement="floating"  placeholder="Enter your name" name="name" required ngModel ></ion-input>
+          </ion-item>
+          
+          <ion-item class="mt-2">
+            <ion-input type="Email" aria-label="Success input" color="success" label="Email" label-placement="floating"  placeholder="Enter your Email" name="email" email required ngModel></ion-input>
+          </ion-item>
+
+          <ion-item class="mt-2">
+            <ion-input type="Password" aria-label="Success input" fill="outline-bottom" color="success" class="ion-padding-start" label="Password" label-placement="floating"  placeholder="Enter your Password" name="password" required ngModel></ion-input>
+          </ion-item>
+          <br>
+          <!-- <ion-button type="submit" expand="fullscreen" class="mx-auto"  [disabled]="!register.valid" (click)="submit(register.value)">Register</ion-button> -->
+          
+          <ion-button expand="block" type="submit" [disabled]="!register.valid" (click)="submit(register)">Register</ion-button>
+          <br>
+          
+        </form>
+
+
+       
+       
+      </ion-card-content>
+      <ion-card-content>
+        <span style="margin-top: 10px;">
+
+          <a routerLink="/auth/login"  > go to login</a>
+        </span>
+      </ion-card-content>
+     
+    </ion-card>
+  
+
+</ion-content>

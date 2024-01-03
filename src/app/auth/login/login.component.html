@@ -1,0 +1,72 @@
+
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="search-btn">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+
+  <ion-card class="p-3 mx-auto"  style="margin-top: 100px;width: fit-content;">
+    <ion-card-header>
+      <ion-card-title class="mx-auto">Login</ion-card-title>
+      
+    </ion-card-header>
+    
+    <ion-card-content>
+      
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content> -->
+
+
+
+
+
+<ion-content >
+  
+
+    <ion-card style="width: fit-content;margin-top: 100px;" class="mx-auto p-3">
+      <ion-card-header>
+        <ion-card-title class="mx-auto">Login</ion-card-title>
+        <!-- <ion-card-subtitle class="ion-margin-top">Login</ion-card-subtitle> -->
+      </ion-card-header>
+      <ion-card-content>
+        <form #login="ngForm">
+          
+          <ion-item class="mt-2">
+            <ion-input type="Email" aria-label="Success input" color="success" label="Email" label-placement="floating"  placeholder="Enter your Email" name="email" email required ngModel></ion-input>
+          </ion-item>
+          <ion-item class="mt-2">
+            <ion-input type="Password"  aria-label="Success input" fill="outline-bottom" color="success" class="ion-padding-start" label="Password" label-placement="floating"  placeholder="Enter your Password" name="password" required ngModel></ion-input>
+          </ion-item>
+          <br>
+          <ion-button expand="block" type="submit" [disabled]="!login.valid" (click)="loginUser(login.value)">Login</ion-button>
+          
+        </form>
+        
+        
+      </ion-card-content>
+      <ion-card-content>
+        <a routerLink="/auth/register" > go to register</a>
+
+      </ion-card-content>
+     
+    </ion-card>
+  
+</ion-content>

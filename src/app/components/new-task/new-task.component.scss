@@ -24,7 +24,7 @@
   }
 }
 
-.container {
+.container1 {
   position: absolute;
   top: 30%;
   height: 40vh;
@@ -32,9 +32,13 @@
   margin-right: 1.8rem;
   width: calc(100vw - 2 * 1.8rem);
 
-  ion-input {
+  .taskInputBar {
     font-size: 1.9rem;
-    width: 100%;
+    width:100% ;
+  }
+  .DateInputBar{
+    font-size: 1.5rem;
+
   }
 
   .rounded-rectangle {

@@ -6,35 +6,46 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <div class="container">
-    <ion-input autofocus="true" placeholder="Enter new task" #taskName [value]="todoName" required></ion-input>
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <span class="rounded-rectangle">
-              <ion-icon name="calendar-clear-outline"></ion-icon>
-              <span>Today</span>
-            </span>
-          </td>
-          <td>
-            <div class="rounded">
-              <ion-icon id="radio-icon" class="radio-business" name="radio-button-on-outline"></ion-icon>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>home
+  <form #newTask="ngForm">
+    
+    <div class="container1">
+      <p class="fs-2 text-centre">Add Task</p>
+      <ion-input class="taskInputBar" autofocus="true" placeholder="Enter new task" name="task" #taskName [value]="todoName" ngModel required></ion-input>
+      
+          <ion-select class="my-2" placeholder="Select a Catagory" name="catagory" ngModel required >
+            <div slot="label" class="fs-2">Catagory: </div>
+            <ion-select-option value="personal">Personal</ion-select-option>
+            <ion-select-option value="buisness">Buisness</ion-select-option>
+          </ion-select>
+       
+      <div class="my-2 ">
+        <span  style="width: fit-content"> 
+          <lable class="fs-2">
+            date:
+          </lable>
+            <ion-input class="DateInputBar" type="date"  name="date" ngModel required >
+            </ion-input>
+        </span>
+          
+    </div>
+     
     <span class="bottom-icons">
+      <div >
+        <button type="submit" class="btn btn-outline-success btn-lg" [disabled]="!newTask.valid" (click)="addTask(newTask)"> Add Task</button>
+      </div>
       <i class='bx bx-folder-plus'></i>
       <ion-icon name="flag-outline"></ion-icon>
       <ion-icon name="moon-outline"></ion-icon>
     </span>
   </div>
-
-  <ion-fab vertical="bottom" horizontal="end" >
-    <ion-fab-button>
-      New task &nbsp; <ion-icon name="chevron-up-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <!-- <div>
+    
+    <ion-fab vertical="bottom" horizontal="end" position="fixed" >
+      <ion-fab-button>
+        New task &nbsp; <ion-icon name="chevron-up-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div> -->
+</form>
+  
 </ion-content>

@@ -13,13 +13,16 @@
       <ion-button>
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
+      <ion-button (click)="logOutUser()">
+        LogOut
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <strong>What's up, Joy!</strong>
+    <strong>What's up, {{user?.name}}!</strong>
     <span class="sub-header">categories</span>
 
     <!-- categories -->
@@ -48,8 +51,7 @@
     <span class="todays-header">TODAY'S TASKs</span>
     <div class="task-list" >
       <!-- This is where the tasks will go -->
-      <app-task [text]="'Task 1'"></app-task>
-      <app-task [text]="'Task 2'"></app-task>
+      <app-task [todos]="todos" [user]="user" (eve)="updateTodos($event)"></app-task>
       
       
     </div>
@@ -63,7 +65,7 @@
 
   <ion-modal mode="ios" trigger="trigger-button" [isOpen]="false" [breakpoints]="[0.1, 0.5, 1]" [initialBreakpoint]="1">
     <ng-template>
-      <app-new-task></app-new-task>
+      <app-new-task [user] ="user" (newItemEvent)="addItem($event)"></app-new-task>
     </ng-template>
   </ion-modal>
 </ion-content>

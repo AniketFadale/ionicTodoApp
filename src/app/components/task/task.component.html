@@ -1,14 +1,66 @@
 <div class="item">
   <table>
+    <thead>
+
+      <tr class="text-centre">
+        <th>No.</th>
+      
+        <th>Task</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr>
-        <td class="task-category">
-          <div class="circular blue"></div>
+      
+      <tr *ngFor="let task of todos;let index = index">
+
+        <td>{{index+1}}</td>
+        <!-- <td >
+          {{task?.catagory}}
+        </td> -->
+        <td>
+          <div *ngIf="editIndex == index">
+            <ion-input [(ngModel)]="todos[editIndex].task"></ion-input>
+          </div>
+          <div *ngIf="editIndex!=index">
+
+            {{task?.task}}
+          </div>
         </td>
-        <td class="task-name">
-          <span>{{text}}</span>
+        <td>
+          <div *ngIf="editIndex == index">
+            <button  style="background-color: rgba(255, 235, 205, 0);" (click)="updateTask(index)">
+              
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="editIndex != index">
+
+            <button  style="background-color: rgba(255, 235, 205, 0);" (click)="editTask(index)">
+              
+              <ion-icon name="create-outline" ></ion-icon>
+            </button>
+          </div>
         </td>
+        <td>
+          <div *ngIf="editIndex == index">
+            <button style="background-color: rgba(255, 235, 205, 0);" (click)="cancleUpdate()">
+              
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div *ngIf="editIndex != index" >
+
+            <button style="background-color: rgba(255, 235, 205, 0);" (click)="deleteTask(index)">
+              
+              <ion-icon name="trash-outline"></ion-icon>
+            </button>
+          </div>
+        </td>
+        
       </tr>
     </tbody>
   </table>
+
+  
 </div>
+
+

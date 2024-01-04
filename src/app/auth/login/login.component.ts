@@ -18,7 +18,7 @@ export class LoginComponent  implements OnInit {
     console.log(data);
     let users = JSON.parse(localStorage.getItem('users')||'[]')
     if(users.length == 0){
-      console.log('No users register yet');
+      alert('Wrong email or password')
       
     }else{
       let flag = true
@@ -31,7 +31,7 @@ export class LoginComponent  implements OnInit {
           flag = false
 
           console.log('login successfully')
-          this.router.navigate(['/home'],{ queryParams: users[i] })
+          this.router.navigate(['/home'])
         }
       }
       if(flag){

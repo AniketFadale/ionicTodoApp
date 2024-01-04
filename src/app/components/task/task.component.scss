@@ -1,11 +1,12 @@
 .item {
     background-color: var(--ion-card-background);
-    padding: 22px 0;
+    padding: 22px 10px;
     border-radius: 1.3rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 6px;
+    overflow: auto;
   }
   
   .itemsLeft {

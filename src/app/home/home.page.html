@@ -20,9 +20,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"> 
   <div id="container">
     <strong>What's up, {{user?.name}}!</strong>
+
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
+          >Dark Mode</ion-toggle
+        >
+      </ion-item>
+    </ion-list>
     <span class="sub-header">categories</span>
 
     <!-- categories -->
@@ -68,4 +76,5 @@
       <app-new-task [user] ="user" (newItemEvent)="addItem($event)"></app-new-task>
     </ng-template>
   </ion-modal>
+
 </ion-content>
